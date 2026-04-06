@@ -1,0 +1,28 @@
+# Environment
+.env
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# FastF1 cache (large binary files)
+data_cache/*.ff1pkl
+data_cache/**/*.ff1pkl
+
+# Logs
+logs/
+*.log
+
+# Screenshots / generated assets
+assets/*.png
+assets/*.jpg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
