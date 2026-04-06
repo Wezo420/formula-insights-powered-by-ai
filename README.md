@@ -205,20 +205,6 @@ Open [http://localhost:8501](http://localhost:8501) in your browser.
 
 ---
 
-## Screenshots
-
-> _Add screenshots here after running the application._
-
-| Page | Screenshot |
-|------|-----------|
-| Landing Page | `assets/screenshot_home.png` |
-| Race Overview | `assets/screenshot_overview.png` |
-| Driver Battle | `assets/screenshot_battle.png` |
-| Telemetry | `assets/screenshot_telemetry.png` |
-| Race Engineer | `assets/screenshot_engineer.png` |
-
----
-
 ## Configuration
 
 All settings are in `config/settings.py` and can be overridden via `.env`:
@@ -231,7 +217,3 @@ All settings are in `config/settings.py` and can be overridden via `.env`:
 | `APP_TITLE` | `Formula Insights AI` | Browser tab title |
 
 ---
-
-## License
-
-MIT License. See `LICENSE` for details.
