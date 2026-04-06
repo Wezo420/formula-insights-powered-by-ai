@@ -170,7 +170,9 @@ with tab4:
                 strategy_diff=strategy_diff,
             )
             result = chat_completion(system, user, max_tokens=900)
-        st.markdown(
-            f'<div class="fi-chat-ai">{result}</div>',
-            unsafe_allow_html=True,
-        )
+        # st.markdown(
+        #     f'<div class="fi-chat-ai">{result}</div>',
+        #     unsafe_allow_html=True,
+        # )
+        with st.container(border=True):
+            st.markdown(result)

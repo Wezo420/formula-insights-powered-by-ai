@@ -81,12 +81,8 @@ if mode == "💡 Quick Insights":
             # Show answer if available
             answer_key = f"preset_answer_{i}"
             if answer_key in st.session_state:
-                st.markdown(
-                    f'<div class="fi-chat-ai" style="font-size:0.85rem;">'
-                    f'{st.session_state[answer_key]}'
-                    f'</div>',
-                    unsafe_allow_html=True,
-                )
+                with st.container(border=True):
+                    st.markdown(st.session_state[answer_key])
 
 elif mode == "❓ Custom Question":
     section_header("Ask the AI Analyst")
@@ -108,10 +104,8 @@ elif mode == "❓ Custom Question":
         with st.spinner("Thinking…"):
             system, user = ai_insights_prompt(year, gp, race_context, question)
             answer = chat_completion(system, user, max_tokens=1000)
-        st.markdown(
-            f'<div class="fi-chat-ai">{answer}</div>',
-            unsafe_allow_html=True,
-        )
+        with st.container(border=True):
+            st.markdown(answer)
         if include_context:
             with st.expander("Data context provided to AI"):
                 st.text(race_context)
@@ -130,12 +124,8 @@ elif mode == "💬 Chat History":
     for msg in st.session_state.ai_chat_history:
         role_class = "fi-chat-user" if msg["role"] == "user" else "fi-chat-ai"
         icon = "👤" if msg["role"] == "user" else "🤖"
-        st.markdown(
-            f'<div class="{role_class}">'
-            f'<strong>{icon} {msg["role"].title()}</strong><br>{msg["content"]}'
-            f'</div>',
-            unsafe_allow_html=True,
-        )
+        with st.container(border=True):
+            st.markdown(f"**{icon} {msg['role'].title()}**\n\n{msg['content']}")
 
     # Input
     user_msg = st.chat_input("Ask about the race…")
