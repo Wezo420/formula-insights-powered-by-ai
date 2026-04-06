@@ -135,7 +135,11 @@ def summarise_telemetry(tel: pd.DataFrame) -> dict:
         stats["avg_throttle"] = round(df["Throttle"].mean(), 1)
         stats["full_throttle_pct"] = round((df["Throttle"] >= 98).mean() * 100, 1)
     if "Brake" in df.columns:
-        stats["braking_pct"] = round((df["Brake"] > 5).mean() * 100, 1)
+        # stats["braking_pct"] = round((df["Brake"] > 5).mean() * 100, 1)
+        # Dynamically handle 0-1 boolean scale vs 0-100 percentage scale
+        max_brake = df["Brake"].max()
+        brake_threshold = 5.0 if max_brake > 1.0 else 0.0
+        stats["braking_pct"] = round((df["Brake"] > brake_threshold).mean() * 100, 1)
     if "nGear" in df.columns:
         stats["avg_gear"] = round(df["nGear"].mean(), 2)
     return stats
