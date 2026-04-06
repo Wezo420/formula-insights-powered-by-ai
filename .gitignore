@@ -9,6 +9,7 @@ __pycache__/
 # FastF1 cache (large binary files)
 data_cache/*.ff1pkl
 data_cache/**/*.ff1pkl
+data_cache/
 
 # Logs
 logs/
